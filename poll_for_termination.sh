@@ -29,7 +29,7 @@ done
 
 if [ "${SLACK_URL}" != "" ]; then
   SLACK_MESSAGE="Spot Termination Detected on node: $NODE_NAME"
-  curl -X POST --data "payload={\"text\": \":warning: ${SLACK_MESSAGE}\"}" ${SLACK_URL}
+  curl -X POST --data "payload={\"content\": \":warning: ${SLACK_MESSAGE}\"}" ${SLACK_URL}
 fi
 
 DOCKER_HOST=$MANAGER_ADDR docker node update --availability drain $NODE_ID
